@@ -42,8 +42,8 @@ class CallbackTest {
     @Test
     void shouldTestV1() {
         List<WebElement> elements = driver.findElements(By.className("input__control"));
-        elements.get(0).sendKeys("Василий");
-        elements.get(1).sendKeys("+79270000000");
+        elements.get(0).sendKeys("Евгения");
+        elements.get(1).sendKeys("+79267777777");
         driver.findElement(By.className("checkbox__box")).click();
         driver.findElement(By.className("button")).click();
         String text = driver.findElement(By.className("alert-success")).getText();
@@ -53,8 +53,8 @@ class CallbackTest {
     @Test
     void shouldTestV2() {
         WebElement form = driver.findElement(By.cssSelector("[data-test-id=callback-form]"));
-        form.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Василий");
-        form.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+79270000000");
+        form.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Евгения");
+        form.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+79267777777");
         form.findElement(By.cssSelector("[data-test-id=agreement]")).click();
         form.findElement(By.cssSelector("[data-test-id=submit]")).click();
         String text = driver.findElement(By.className("alert-success")).getText();
