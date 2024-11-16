@@ -1,3 +1,4 @@
+[![Java CI with Gradle](https://github.com/Evgeniya882023/Selenium-and-Selenide-Testing-Web-Interface/actions/workflows/gradle.yml/badge.svg)](https://github.com/Evgeniya882023/Selenium-and-Selenide-Testing-Web-Interface/actions/workflows/gradle.yml)
 # Домашнее задание к занятию «2.1. Тестирование веб-интерфейсов»
 
 В качестве результата пришлите ссылку на ваш GitHub-проект в личном кабинете студента на сайте [netology.ru](https://netology.ru).
