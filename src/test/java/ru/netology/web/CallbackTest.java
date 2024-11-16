@@ -14,6 +14,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class CallbackTest {
     private WebDriver driver;
@@ -40,25 +41,15 @@ class CallbackTest {
     }
 
     @Test
-    void shouldTestV1() {
-        List<WebElement> elements = driver.findElements(By.className("input__control"));
-        elements.get(0).sendKeys("Евгения");
-        elements.get(1).sendKeys("+79267777777");
-        driver.findElement(By.className("checkbox__box")).click();
-        driver.findElement(By.className("button")).click();
-        String text = driver.findElement(By.className("alert-success")).getText();
-        assertEquals("Ваша заявка успешно отправлена!", text.trim());
-    }
-
-    @Test
-    void shouldTestV2() {
-        WebElement form = driver.findElement(By.cssSelector("[data-test-id=callback-form]"));
-        form.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Евгения");
-        form.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+79267777777");
-        form.findElement(By.cssSelector("[data-test-id=agreement]")).click();
-        form.findElement(By.cssSelector("[data-test-id=submit]")).click();
-        String text = driver.findElement(By.className("alert-success")).getText();
-        assertEquals("Ваша заявка успешно отправлена!", text.trim());
+    void successFormTest() {
+        driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Евгения");
+        driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+79267777777");
+        driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
+        driver.findElement(By.cssSelector("button.button")).click();
+        WebElement actualElement = driver.findElement(By.cssSelector("[data-test-id=order-success]"));
+        String actualText = actualElement.getText().trim();
+        assertEquals("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", actualText);
+        assertTrue(actualElement.isDisplayed());
     }
 }
 
